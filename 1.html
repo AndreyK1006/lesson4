@@ -10,7 +10,30 @@
 
 <body>
     <script>
-        12
+
+        const obj1 = {
+            units: "",
+            tens: "",
+            hundreds: ""
+        }
+
+        let number1 = Number(prompt("Введите целое число"));
+        if ((number1 >= 0) && (number1 <= 999) && Number.isInteger(number1)) {
+            console.log("Число подходит");
+            obj1.units = number1 % 10;
+            obj1.tens = (Math.floor(number1 / 10)) % 10;
+            obj1.hundreds = (Math.floor(number1 / 100)) % 10;
+
+            console.log("units:" + obj1.units + ",//это единицы");
+            console.log("units:" + obj1.tens + ",//это десятки");
+            console.log("units:" + obj1.hundreds + ",//это сотни");
+
+        }
+        else {
+            console.log("Нужно было ввести корректное число");
+        }
+
+
     </script>
 </body>
 
