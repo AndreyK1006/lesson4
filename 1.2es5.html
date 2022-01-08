@@ -16,6 +16,26 @@
             this.text = text;
             this.date = date;
         }
+
+        Post.prototype.edit = function (text) {
+            this.text = text;
+        };
+
+        function AttechedPost(author, text, date) {
+            Post.call(this, author, text, date);
+            this.highlighted = false;
+        }
+
+        AttechedPost.prototype = Object.create(Post.prototype);
+        AttechedPost.prototype.constructor = AttechedPost;
+
+        AttechedPost.prototype.makeTextHighlighted = function () {
+            this.highlighted = true;
+        }
+
+        let obj1 = new AttechedPost("Вася", "Жили-были", 2021);
+        obj1.makeTextHighlighted();
+        console.log(obj1.highlighted);
     </script>
 </body>
 
